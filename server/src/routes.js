@@ -37,7 +37,31 @@ routes.post(
   ],
   saveMovie,
 );
-routes.post('/update-movie', updateMovie);
+routes.post(
+  '/update-movie',
+  [
+    check('name')
+      .exists()
+      .isLength({ min: 2, max: 500 }),
+    check('release_year')
+      .exists()
+      .isLength(4),
+    check('plot')
+      .exists()
+      .isLength({ min: 2, max: 1000 }),
+    check('producer')
+      .exists()
+      .isLength({ min: 1, max: 4 }),
+    check('poster')
+      .exists()
+      .isLength({ max: 2000 }),
+    check('actors'),
+    check('actors')
+      .exists()
+      .isLength({ min: 1, max: 200 }),
+  ],
+  updateMovie,
+);
 routes.post(
   '/add-actor',
   [

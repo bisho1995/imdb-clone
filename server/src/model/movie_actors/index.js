@@ -1,4 +1,4 @@
-import { addActorsForMovie } from './movie_actors';
+import { addActorsForMovie, listActors } from './movie_actors';
 
 export default undefined;
-export { addActorsForMovie };
+export { addActorsForMovie, listActors };

@@ -1,3 +1,4 @@
+import mysql from 'mysql';
 import connection from '../db';
 
 /**
@@ -19,5 +20,17 @@ function addActorsForMovie(movieId, actors) {
   });
 }
 
+function listActors(movieId) {
+  return new Promise((resolve, reject) => {
+    const SQL = 'SELECT actor_id FROM movie_actors WHERE movie_id = ? ';
+    const query = mysql.format(SQL, [movieId]);
+
+    connection.query(query, (err, results) => {
+      if (err) reject(err);
+      else resolve(results.map(result => result.actor_id));
+    });
+  });
+}
+
 export default undefined;
-export { addActorsForMovie };
+export { addActorsForMovie, listActors };

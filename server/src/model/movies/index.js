@@ -8,5 +8,5 @@ import {
 
 export default undefined;
 export {
- addMovie, getActors, getMovieDetails, getIds, updateMovie 
+  addMovie, getActors, getMovieDetails, getIds, updateMovie,
 };

@@ -58,5 +58,5 @@ function addActor(movieId, actorId) {
 
 export default undefined;
 export {
- addActorsForMovie, listActors, deleteActor, addActor 
+  addActorsForMovie, listActors, deleteActor, addActor,
 };

@@ -32,8 +32,8 @@ export default function (req, res) {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
     const {
- name, release_year, plot, poster, producer, id 
-} = req.body;
+      name, release_year, plot, poster, producer, id,
+    } = req.body;
     const actors = req.body.actors.trim().split(',');
     listActors(id)
       .then(async (result) => {

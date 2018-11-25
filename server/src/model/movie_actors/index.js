@@ -7,5 +7,5 @@ import {
 
 export default undefined;
 export {
- addActorsForMovie, listActors, deleteActor, addActor 
+  addActorsForMovie, listActors, deleteActor, addActor,
 };

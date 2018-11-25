@@ -32,5 +32,31 @@ function listActors(movieId) {
   });
 }
 
+function deleteActor(movie_id, actor_id) {
+  return new Promise((resolve, reject) => {
+    const SQL = 'DELETE from movie_actors WHERE movie_id = ? AND actor_id = ?';
+    const query = mysql.query(SQL, [movie_id, actor_id]);
+
+    connection.query(query, (err, results) => {
+      if (err) reject(err);
+      else resolve(results);
+    });
+  });
+}
+
+function addActor(movie_id, actor_id) {
+  return new Promise((resolve, reject) => {
+    const SQL = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(?,?)';
+    const query = mysql.query(SQL, [movie_id, actor_id]);
+
+    connection.query(query, (err, results) => {
+      if (err) reject(err);
+      else resolve(results);
+    });
+  });
+}
+
 export default undefined;
-export { addActorsForMovie, listActors };
+export {
+ addActorsForMovie, listActors, deleteActor, addActor 
+};

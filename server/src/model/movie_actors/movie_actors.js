@@ -32,10 +32,10 @@ function listActors(movieId) {
   });
 }
 
-function deleteActor(movie_id, actor_id) {
+function deleteActor(movieId, actorId) {
   return new Promise((resolve, reject) => {
     const SQL = 'DELETE from movie_actors WHERE movie_id = ? AND actor_id = ?';
-    const query = mysql.query(SQL, [movie_id, actor_id]);
+    const query = mysql.format(SQL, [movieId, actorId]);
 
     connection.query(query, (err, results) => {
       if (err) reject(err);
@@ -44,10 +44,10 @@ function deleteActor(movie_id, actor_id) {
   });
 }
 
-function addActor(movie_id, actor_id) {
+function addActor(movieId, actorId) {
   return new Promise((resolve, reject) => {
     const SQL = 'INSERT INTO movie_actors(movie_id, actor_id) VALUES(?,?)';
-    const query = mysql.query(SQL, [movie_id, actor_id]);
+    const query = mysql.format(SQL, [movieId, actorId]);
 
     connection.query(query, (err, results) => {
       if (err) reject(err);

@@ -64,7 +64,7 @@ function getIds(limit = -1, offset = 0) {
   });
 }
 
-function updateMovie(id, name, release_year, plot, poster, producer, actors) {
+function updateMovie(id, name, release_year, plot, poster, producer) {
   return new Promise((resolve, reject) => {
     const SQL =      'UPDATE movies set name = ?, release_year=?, plot=?, producer=?, poster=?  WHERE id = ?';
     const query = mysql.format(SQL, [

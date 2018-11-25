@@ -52,5 +52,19 @@ function getMovieDetails(id) {
   });
 }
 
+function getIds(limit = -1, offset = 0) {
+  return new Promise((resolve, reject) => {
+    const query =      limit === -1
+        ? 'SELECT id from movies'
+        : `SELECT id from movies LIMIT ${offset}, ${limit}`;
+    connection.query(query, (err, results) => {
+      if (err) reject(err);
+      else resolve(results.map(result => result.id));
+    });
+  });
+}
+
 export default undefined;
-export { addMovie, getActors, getMovieDetails };
+export {
+ addMovie, getActors, getMovieDetails, getIds 
+};

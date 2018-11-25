@@ -1,4 +1,8 @@
-import { addMovie, getActors, getMovieDetails } from './movies';
+import {
+ addMovie, getActors, getMovieDetails, getIds 
+} from './movies';
 
 export default undefined;
-export { addMovie, getActors, getMovieDetails };
+export {
+ addMovie, getActors, getMovieDetails, getIds 
+};

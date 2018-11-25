@@ -1,5 +1,5 @@
 import { validationResult } from 'express-validator/check';
-import { getMovieDetails } from '../model/movies/index';
+import { getMovieDetails, getIds } from '../model/movies/index';
 
 // TODO: check if id of movies exist
 
@@ -19,9 +19,7 @@ function removeDuplicates(ar) {
 export default async function (req, res) {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
-    const { id } = req.body;
-
-    const idList = removeDuplicates(id.trim().split(','));
+    const idList = await getIds();
     const movies = new Array(idList.length);
     for (let i = 0; i < idList.length; i += 1) {
       movies[i] = getMovieDetails(idList[i]);

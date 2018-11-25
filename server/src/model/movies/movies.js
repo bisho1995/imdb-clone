@@ -3,7 +3,7 @@ import connection from '../db';
 
 function addMovie(name, release_year, plot, poster, producer_id) {
   return new Promise((resolve, reject) => {
-    const SQL = 'INSERT INTO movies(name, release_year, plot, poster, producer) VALUES(?,?,?,?,?)';
+    const SQL =      'INSERT INTO movies(name, release_year, plot, poster, producer) VALUES(?,?,?,?,?)';
     const query = mysql.format(SQL, [
       name,
       release_year,
@@ -21,7 +21,7 @@ function addMovie(name, release_year, plot, poster, producer_id) {
 
 function getActors(id) {
   return new Promise((resolve, reject) => {
-    const SQL = 'SELECT actors.name from movies INNER JOIN movie_actors on movies.id = movie_actors.movie_id INNER JOIN actors on movie_actors.actor_id = actors.id where movies.id = ?';
+    const SQL =      'SELECT actors.name from movies INNER JOIN movie_actors on movies.id = movie_actors.movie_id INNER JOIN actors on movie_actors.actor_id = actors.id where movies.id = ?';
     const query = mysql.format(SQL, [id]);
     connection.query(query, (err, results) => {
       if (err) reject(err);
@@ -32,7 +32,7 @@ function getActors(id) {
 
 function getMovieDetails(id) {
   return new Promise((resolve, reject) => {
-    const SQL = "SELECT movies.name as NAME,movies.release_year AS 'RELEASE YEAR', movies.poster AS POSTER, movies.plot AS PLOT, producers.name AS PRODUCER from movies INNER JOIN producers on movies.producer = producers.id WHERE movies.id=?";
+    const SQL =      "SELECT movies.name as NAME,movies.release_year AS 'RELEASE YEAR', movies.poster AS POSTER, movies.plot AS PLOT, producers.name AS PRODUCER from movies INNER JOIN producers on movies.producer = producers.id WHERE movies.id=?";
     const query = mysql.format(SQL, [id]);
 
     connection.query(query, async (err, result) => {

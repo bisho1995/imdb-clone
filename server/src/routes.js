@@ -65,13 +65,13 @@ routes.post(
   ],
   addActorForMovie,
 );
-routes.post('/list-movies', listMovies);
+routes.post('/list-movies', [], listMovies);
 routes.post(
   '/get-movie-info',
   [
     check('id')
       .exists()
-      .isLength({ min: 1, max: 4 }),
+      .isLength({ min: 1, max: 6 }),
   ],
   getMovieInfo,
 );

@@ -1,0 +1,12 @@
+{
+  "cloudinary": {
+    "key": "444495137413254",
+    "secret": "ucSWM-t5BQZkEmPMeCqis7Ygo9Y"
+  },
+  "mysql": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database": "deltax"
+  }
+}

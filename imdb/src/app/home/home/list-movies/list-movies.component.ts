@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MoviesService } from "../../../shared/movies.service";
+import { MoviesService } from "../../../shared/services/movies.service";
 
 import { Movie } from "../../interfaces/movie";
 
@@ -15,7 +15,6 @@ export class ListMoviesComponent implements OnInit {
   ngOnInit() {
     this.movie.listMovies().subscribe((data: Movie[]) => {
       this.movies = data;
-      console.log(this.movies);
     });
   }
 }

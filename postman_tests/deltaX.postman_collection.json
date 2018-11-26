@@ -85,10 +85,53 @@
 			"name": "update-movie",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
 				"body": {
-					"mode": "raw",
-					"raw": ""
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Rab Ne Bana Di Jodi",
+							"type": "text"
+						},
+						{
+							"key": "release_year",
+							"value": "2008",
+							"type": "text"
+						},
+						{
+							"key": "plot",
+							"value": "Surinder, a simple man, falls for a vivacious Tani and gets married to her. In order to impress her, he undergoes a complete makeover and becomes Raj.",
+							"type": "text"
+						},
+						{
+							"key": "poster",
+							"value": "https://i.ytimg.com/vi/rAAa7NnTFIQ/maxresdefault.jpg",
+							"type": "text"
+						},
+						{
+							"key": "producer",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "actors",
+							"value": "1,2,3,4,5",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "19",
+							"type": "text"
+						}
+					]
 				},
 				"url": {
 					"raw": "localhost:3000/update-movie",

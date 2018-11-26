@@ -1,0 +1,8 @@
+.movie-wrapper {
+  width: 98%;
+  max-width: 1080px;
+  margin: 0px auto;
+}
+.movie-header {
+  font-size: 2.5rem;
+}

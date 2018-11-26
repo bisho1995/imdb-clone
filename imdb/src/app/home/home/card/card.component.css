@@ -1,0 +1,46 @@
+.card {
+  width: 95%;
+  max-width: 400px;
+}
+.card-title {
+  background: rgba(95, 95, 95, 0.815);
+  font-weight: bold;
+}
+
+.edit-icon {
+  color: #ffab40;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(95, 95, 95, 0.915);
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.edit-icon:hover {
+  background: rgba(95, 95, 95, 0.815);
+  transition: background 0.2s;
+}
+.meta-data-producer-year {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.meta-data-producer-year span {
+  font-weight: bold;
+}
+
+.actors-container {
+  display: inline;
+  text-align: left;
+}
+.actors-container span {
+  border-radius: 10px;
+  margin-bottom: 0.2rem;
+}
+
+.release-year {
+  padding: 0.2rem 1rem;
+}

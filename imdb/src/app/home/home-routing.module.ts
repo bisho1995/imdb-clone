@@ -6,9 +6,9 @@ import { AddMovieComponent } from "./add-movie/add-movie.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
-  { path: "edit", component: EditMovieComponent },
+  { path: "edit-movie", component: EditMovieComponent },
   {
-    path: "add",
+    path: "add-movie",
     component: AddMovieComponent
   }
 ];

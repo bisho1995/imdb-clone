@@ -8,9 +8,11 @@ import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home/home.component";
 import { EditMovieComponent } from "./edit-movie/edit-movie.component";
 import { AddMovieComponent } from "./add-movie/add-movie.component";
-import { HeaderComponent } from "./header/header.component";
-import { EditMovieHeaderComponent } from './edit-movie/edit-movie-header/edit-movie-header.component';
-import { AddMovieHeaderComponent } from './add-movie/add-movie-header/add-movie-header.component';
+import { EditMovieHeaderComponent } from "./edit-movie/edit-movie-header/edit-movie-header.component";
+import { AddMovieHeaderComponent } from "./add-movie/add-movie-header/add-movie-header.component";
+import { HomeHeaderComponent } from './home/home-header/home-header.component';
+import { ListMoviesComponent } from './home/list-movies/list-movies.component';
+import { CardComponent } from './home/card/card.component';
 
 @NgModule({
   imports: [CommonModule, HomeRoutingModule],
@@ -18,9 +20,11 @@ import { AddMovieHeaderComponent } from './add-movie/add-movie-header/add-movie-
     HomeComponent,
     EditMovieComponent,
     AddMovieComponent,
-    HeaderComponent,
     EditMovieHeaderComponent,
-    AddMovieHeaderComponent
+    AddMovieHeaderComponent,
+    HomeHeaderComponent,
+    ListMoviesComponent,
+    CardComponent
   ],
   providers: [SharedModule]
 })

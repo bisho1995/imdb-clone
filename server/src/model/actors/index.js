@@ -1,4 +1,4 @@
-import { addActor } from './actors';
+import { addActor, listActors } from './actors';
 
 export default undefined;
-export { addActor };
+export { addActor, listActors };

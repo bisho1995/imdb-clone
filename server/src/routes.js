@@ -8,6 +8,8 @@ import addActorForMovie from './routes/actorsForMovie';
 import listMovies from './routes/listMovies';
 import getMovieInfo from './routes/getMovieInfo';
 import addProducer from './routes/addProducer';
+import listActors from './routes/listActors';
+import listProducers from './routes/listProducers';
 
 const routes = Router();
 
@@ -99,6 +101,7 @@ routes.post(
   ],
   getMovieInfo,
 );
+routes.post('/list-actors', [], listActors);
 routes.post(
   '/add-producer',
   [
@@ -117,5 +120,6 @@ routes.post(
   ],
   addProducer,
 );
+routes.post('/list-producers', [], listProducers);
 
 export default routes;

@@ -243,16 +243,7 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "id",
-							"value": "19,19",
-							"type": "text"
-						}
-					]
-				},
+				"body": {},
 				"url": {
 					"raw": "localhost:3000/list-movies",
 					"host": [
@@ -378,6 +369,50 @@
 					"port": "3000",
 					"path": [
 						"add-producer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-actors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/list-actors",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list-actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list-producers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/list-producers",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"list-producers"
 					]
 				}
 			},

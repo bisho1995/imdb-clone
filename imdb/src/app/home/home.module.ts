@@ -1,6 +1,6 @@
 import { NgModule, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 import { SharedModule } from "../shared/shared.module";
 
@@ -14,10 +14,10 @@ import { AddMovieHeaderComponent } from "./add-movie/add-movie-header/add-movie-
 import { HomeHeaderComponent } from "./home/home-header/home-header.component";
 import { ListMoviesComponent } from "./home/list-movies/list-movies.component";
 import { CardComponent } from "./home/card/card.component";
-import { FooterComponent } from './shared/footer/footer.component';
+import { FooterComponent } from "./shared/footer/footer.component";
 
 @NgModule({
-  imports: [CommonModule, HomeRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, HomeRoutingModule, ReactiveFormsModule, FormsModule],
   declarations: [
     HomeComponent,
     EditMovieComponent,

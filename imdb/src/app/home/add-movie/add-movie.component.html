@@ -1,3 +1,75 @@
 <app-add-movie-header></app-add-movie-header>
-<div class="container"></div>
+<div class="container">
+  <h1 class="center-align header">Add Movie</h1>
+  <form (ngSubmit)="formSubmit()" [formGroup]="addForm">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      class=""
+      placeholder="Movie Name eg: Rab ne bana di jodi"
+      formControlName="name"
+      required
+    />
+    <label for="release_year">Release Year</label>
+    <input
+      type="text"
+      id="release_year"
+      class=""
+      placeholder="2009"
+      formControlName="release_year"
+      required
+    />
+    <label for="poster">Poster URL</label>
+    <input
+      type="url"
+      id="poster"
+      class=""
+      placeholder="http://link-to-your-image.jpg"
+      formControlName="poster"
+      required
+    />
+    <div class="space-between">
+      <label for="producer">Producer</label>
+      <button class="btn">Add producer</button>
+    </div>
+    <select
+      name="cars"
+      id="producer"
+      class="select"
+      formControlName="producer"
+      required
+    >
+      <option value="1">Vinodh</option>
+    </select>
+    <div class="space-between">
+      <label for="actors"
+        >Actors (press ctrl and click to select multiple options)</label
+      ><button class="btn">Add actor</button>
+    </div>
+    <select
+      multiple
+      name="cars"
+      id="actors"
+      class="select"
+      required
+      formControlName="actors"
+    >
+      <option value="1">Vinodh</option>
+      <option value="2">Actor 1</option>
+      <option value="3">Actor 2</option>
+      <option value="4">Actor 3</option>
+      <option value="5">Actor 4</option>
+      <option value="6">Actor 5</option>
+    </select>
+    <div class="center-align">
+      <input
+        type="submit"
+        value="Add Movie"
+        class="btn blue "
+        [disabled]="!addForm.valid"
+      />
+    </div>
+  </form>
+</div>
 <app-footer></app-footer>

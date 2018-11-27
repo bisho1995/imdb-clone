@@ -11,5 +11,15 @@ function addActor(name, sex, dob, bio) {
     });
   });
 }
+
+function listActors() {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT id, name from actors';
+    connection.query(query, (err, result) => {
+      if (err) reject(err);
+      else resolve(result);
+    });
+  });
+}
 export default undefined;
-export { addActor };
+export { addActor, listActors };

@@ -1,5 +1,5 @@
-import { addProducer } from './producers';
+import { addProducer, listProducers } from './producers';
 
 export default undefined;
 
-export { addProducer };
+export { addProducer, listProducers };

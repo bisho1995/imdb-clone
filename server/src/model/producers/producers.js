@@ -11,5 +11,15 @@ function addProducer(name, sex, dob, bio) {
     });
   });
 }
+
+function listProducers() {
+  return new Promise((resolve, reject) => {
+    const query = 'SELECT id, name from producers';
+    connection.query(query, (err, results) => {
+      if (err) reject(err);
+      else resolve(results);
+    });
+  });
+}
 export default undefined;
-export { addProducer };
+export { addProducer, listProducers };

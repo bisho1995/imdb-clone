@@ -42,6 +42,7 @@ function getMovieDetails(id) {
           const actors = await getActors(id);
           const details = result[0];
           details.actors = actors;
+          details.id = id;
           resolve(details);
         } catch (er) {
           console.log(JSON.stringify(er));

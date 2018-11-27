@@ -4,10 +4,10 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { MoviesService } from "./services/movies.service";
 import { ActorsService } from "./services/actors.service";
-import { ProvidersService } from "./services/providers.service";
+import { ProducersService } from "./services/producers.service";
 
 @NgModule({
   imports: [CommonModule, HttpClientModule],
-  providers: [MoviesService, ActorsService, ProvidersService]
+  providers: [MoviesService, ActorsService, ProducersService]
 })
 export class SharedModule {}

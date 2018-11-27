@@ -40,7 +40,9 @@
       formControlName="producer"
       required
     >
-      <option value="1">Vinodh</option>
+      <option *ngFor="let producer of producers" [value]="producer.id">{{
+        producer.name
+      }}</option>
     </select>
     <div class="space-between">
       <label for="actors"
@@ -55,12 +57,9 @@
       required
       formControlName="actors"
     >
-      <option value="1">Vinodh</option>
-      <option value="2">Actor 1</option>
-      <option value="3">Actor 2</option>
-      <option value="4">Actor 3</option>
-      <option value="5">Actor 4</option>
-      <option value="6">Actor 5</option>
+      <option *ngFor="let actor of actors" [value]="actor.id">{{
+        actor.name
+      }}</option>
     </select>
     <div class="center-align">
       <input

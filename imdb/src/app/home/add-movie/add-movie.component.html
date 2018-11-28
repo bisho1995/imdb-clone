@@ -47,7 +47,10 @@
     <div class="space-between">
       <label for="actors"
         >Actors (press ctrl and click to select multiple options)</label
-      ><button class="btn">Add actor</button>
+      >
+      <button class="btn" (click)="addActorService.showAddActor()">
+        Add actor
+      </button>
     </div>
     <select
       multiple
@@ -77,4 +80,6 @@
   </form>
 </div>
 <app-footer></app-footer>
-<app-add-actor></app-add-actor>
+<div *ngIf="addActorService.addActorShowHide">
+  <app-add-actor></app-add-actor>
+</div>

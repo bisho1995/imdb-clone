@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import moment from "moment";
 
 import { environment } from "../../../environments/environment";
 
@@ -14,7 +15,12 @@ export class ActorsService {
   }
 
   addActor(name, sex, dob, bio) {
-    const body = JSON.stringify({ name, sex, dob, bio });
+    const body = JSON.stringify({
+      name,
+      sex,
+      dob: moment(dob).format("DD/MM/YYYY"),
+      bio
+    });
     const options = {
       headers: new HttpHeaders({
         "Content-type": "application/json"

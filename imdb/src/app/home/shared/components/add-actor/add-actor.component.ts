@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 
 import { ActorsService } from "../../../../shared/services/actors.service";
+import { AddActorService } from "../../services/add-actor.service";
 
 @Component({
   selector: "app-add-actor",
@@ -15,7 +16,10 @@ export class AddActorComponent implements OnInit {
     dob: new FormControl(""),
     bio: new FormControl("")
   });
-  constructor(private actorService: ActorsService) {}
+  constructor(
+    private actorService: ActorsService,
+    private addActorService: AddActorService
+  ) {}
 
   ngOnInit() {}
   saveActor() {
@@ -27,7 +31,10 @@ export class AddActorComponent implements OnInit {
         this.addActor.value.bio
       )
       .subscribe(result => {
-        console.log(result);
+        this.addActor.reset();
       });
+  }
+  removeScreen() {
+    this.addActorService.hideAddActor();
   }
 }

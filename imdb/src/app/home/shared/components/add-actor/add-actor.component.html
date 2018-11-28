@@ -1,6 +1,6 @@
 <div class="add-actor-wrapper">
   <div class="wrapper">
-    <div class="cancel">X</div>
+    <div class="cancel" (click)="removeScreen()">X</div>
     <header><h1 class="center-align">Add Actor</h1></header>
     <form (submit)="saveActor()" [formGroup]="addActor">
       <label for="name">Name</label>

@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AddActorService {
-
-  constructor() { }
+  addActorShowHide: Boolean;
+  constructor() {
+    this.addActorShowHide = false;
+  }
+  hideAddActor() {
+    this.addActorShowHide = false;
+  }
+  showAddActor() {
+    this.addActorShowHide = true;
+  }
 }

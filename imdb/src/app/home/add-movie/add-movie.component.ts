@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 
 import { ActorsService } from "../../shared/services/actors.service";
+import { AddActorService } from "../shared/services/add-actor.service";
 import { ProducersService } from "../../shared/services/producers.service";
 @Component({
   selector: "app-add-movie",
@@ -24,7 +25,8 @@ export class AddMovieComponent implements OnInit {
   producers: any[];
   constructor(
     private actorService: ActorsService,
-    private producerService: ProducersService
+    private producerService: ProducersService,
+    public addActorService: AddActorService
   ) {}
 
   ngOnInit() {
@@ -53,9 +55,7 @@ export class AddMovieComponent implements OnInit {
       .listProducers()
       .subscribe(producer => (this.producers = producer["results"]));
   }
-  formSubmit() {
-    console.log(this.addForm.value);
-  }
+  formSubmit() {}
   public findId() {
     const ids = this.addForm.value.actors;
     const list = this.actors.filter(actor => ids.includes(actor.id));

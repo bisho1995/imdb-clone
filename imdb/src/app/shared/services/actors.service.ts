@@ -12,4 +12,14 @@ export class ActorsService {
   listActors() {
     return this.http.post(environment.routes.listActors, "", {});
   }
+
+  addActor(name, sex, dob, bio) {
+    const body = JSON.stringify({ name, sex, dob, bio });
+    const options = {
+      headers: new HttpHeaders({
+        "Content-type": "application/json"
+      })
+    };
+    return this.http.post(environment.routes.addActor, body, options);
+  }
 }

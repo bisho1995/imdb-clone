@@ -16,7 +16,11 @@ export class AddMovieComponent implements OnInit {
     producer: new FormControl(""),
     actors: new FormControl("")
   });
+  actorSubscription: any;
   actors: any[];
+  selectedActors: any[];
+
+  producerSubscription: any;
   producers: any[];
   constructor(
     private actorService: ActorsService,
@@ -24,17 +28,37 @@ export class AddMovieComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.actorService
-      .listActors()
-      .subscribe(actors => (this.actors = actors["result"]));
-    this.producerService
-      .listProducers()
-      .subscribe(producer => (this.producers = producer["results"]));
-    this.addForm.valueChanges.subscribe(data => {
-      console.log(data.actors);
+    this.startSubscriptionForActors();
+    this.startSubscriptionForProducers();
+    this.observeFormValueChanges();
+  }
+  observeFormValueChanges() {
+    this.addForm.valueChanges.subscribe(() => {
+      this.findId();
     });
   }
+  startSubscriptionForActors() {
+    this.actorSubscription = this.actorService
+      .listActors()
+      .subscribe(actors => (this.actors = actors["result"]));
+  }
+  stopSubscriptionForActors() {
+    this.actorSubscription.unsubscribe();
+  }
+  stopSubscriptionForProducers() {
+    this.producerSubscription.unsubscribe();
+  }
+  startSubscriptionForProducers() {
+    this.producerSubscription = this.producerService
+      .listProducers()
+      .subscribe(producer => (this.producers = producer["results"]));
+  }
   formSubmit() {
-    console.log(this.addForm);
+    console.log(this.addForm.value);
+  }
+  public findId() {
+    const ids = this.addForm.value.actors;
+    const list = this.actors.filter(actor => ids.includes(actor.id));
+    this.selectedActors = list;
   }
 }

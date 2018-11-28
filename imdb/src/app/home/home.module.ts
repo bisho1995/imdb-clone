@@ -15,6 +15,11 @@ import { HomeHeaderComponent } from "./home/home-header/home-header.component";
 import { ListMoviesComponent } from "./home/list-movies/list-movies.component";
 import { CardComponent } from "./home/card/card.component";
 import { FooterComponent } from "./shared/footer/footer.component";
+import { AddActorComponent } from "./shared/components/add-actor/add-actor.component";
+import { AddProducerComponent } from "./shared/components/add-producer/add-producer.component";
+
+import { AddActorService } from "./shared/services/add-actor.service";
+import { AddProducerService } from "./shared/services/add-producer.service";
 
 @NgModule({
   imports: [CommonModule, HomeRoutingModule, ReactiveFormsModule, FormsModule],
@@ -27,9 +32,11 @@ import { FooterComponent } from "./shared/footer/footer.component";
     HomeHeaderComponent,
     ListMoviesComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
+    AddActorComponent,
+    AddProducerComponent
   ],
-  providers: [SharedModule]
+  providers: [SharedModule, AddActorService, AddProducerService]
 })
 export class HomeModule implements OnInit {
   ngOnInit() {

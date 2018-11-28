@@ -61,6 +61,11 @@
         actor.name
       }}</option>
     </select>
+    <div *ngIf="addForm.value.actors.length >= 0">
+      <ul>
+        <li *ngFor="let actor of selectedActors">{{ actor.name }}</li>
+      </ul>
+    </div>
     <div class="center-align">
       <input
         type="submit"
@@ -72,3 +77,4 @@
   </form>
 </div>
 <app-footer></app-footer>
+<app-add-actor></app-add-actor>

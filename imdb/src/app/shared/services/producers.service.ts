@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Subject, Observable } from "rxjs";
+import { Subject, Observable, BehaviorSubject } from "rxjs";
 import * as moment from "moment";
 
 import { environment } from "../../../environments/environment";
@@ -10,7 +10,7 @@ import { environment } from "../../../environments/environment";
 export class ProducersService {
   producers;
   constructor(private http: HttpClient) {
-    this.producers = new Subject();
+    this.producers = new BehaviorSubject([]);
     this.getProducers();
   }
 

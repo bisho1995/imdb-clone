@@ -60,7 +60,6 @@ export class AddMovieComponent implements OnInit {
     );
   }
   formSubmit() {
-    console.log(this.addForm.value);
     const {
       name,
       release_year,
@@ -70,7 +69,6 @@ export class AddMovieComponent implements OnInit {
       plot
     } = this.addForm.value;
     const actorsStr = actors.join(",");
-    console.log({ name, release_year, poster, actorsStr, producer, plot });
     this.movieService
       .addMovie(name, release_year, plot, poster, producer, actorsStr)
       .subscribe(result => {

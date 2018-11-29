@@ -1,7 +1,7 @@
 <app-edit-movie-header></app-edit-movie-header>
 <div class="container">
   <h1 class="center-align header">Edit Movie</h1>
-  <form [formGroup]="addForm">
+  <form [formGroup]="editMovie">
     <label for="name">Name</label>
     <input
       type="text"
@@ -66,7 +66,7 @@
         actor.name
       }}</option>
     </select>
-    <div *ngIf="addForm.value.actors.length >= 0">
+    <div *ngIf="editMovie.value.actors.length >= 0">
       <ul>
         <li *ngFor="let actor of selectedActors">{{ actor.name }}</li>
       </ul>
@@ -80,7 +80,7 @@
         type="submit"
         value="Add Movie"
         class="btn blue "
-        [disabled]="!addForm.valid"
+        [disabled]="!editMovie.valid"
         (click)="formSubmit()"
       />
     </div>

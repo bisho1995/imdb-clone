@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import * as moment from "moment";
-import { Subject } from "rxjs";
+import { Subject, BehaviorSubject } from "rxjs";
 
 import { environment } from "../../../environments/environment";
 
@@ -12,7 +12,7 @@ export class ActorsService {
   test;
   actors;
   constructor(private http: HttpClient) {
-    this.actors = new Subject();
+    this.actors = new BehaviorSubject([]);
     this.getActors();
   }
 

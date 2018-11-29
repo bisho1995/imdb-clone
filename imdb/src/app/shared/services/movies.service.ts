@@ -49,4 +49,28 @@ export class MoviesService {
         });
     });
   }
+  updateMovie(name, release_year, plot, poster, producer, actors, id) {
+    return new Observable(observer => {
+      const body = JSON.stringify({
+        id,
+        name,
+        release_year,
+        plot,
+        poster,
+        producer,
+        actors
+      });
+      const options = {
+        headers: new HttpHeaders({
+          "Content-type": "application/json"
+        })
+      };
+      return this.http
+        .post(environment.routes.updateMovie, body, options)
+        .subscribe(result => {
+          this.getMovies();
+          observer.next(result);
+        });
+    });
+  }
 }

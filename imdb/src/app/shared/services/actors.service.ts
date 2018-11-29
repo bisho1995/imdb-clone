@@ -16,6 +16,10 @@ export class ActorsService {
     this.getActors();
   }
 
+  getActorsObservable() {
+    return this.actors.asObservable();
+  }
+
   getActors() {
     this.http.post(environment.routes.listActors, "", {}).subscribe(actors => {
       this.actors.next(actors["result"]);

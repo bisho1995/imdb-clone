@@ -1,22 +1,30 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 
 import { environment } from "../../../environments/environment";
-import { Movie } from "../../home/interfaces/movie";
+// import { Movie } from "../../home/interfaces/movie";
 @Injectable({
   providedIn: "root"
 })
 export class MoviesService {
-  constructor(private http: HttpClient) {}
+  movies;
+  constructor(private http: HttpClient) {
+    this.movies = new BehaviorSubject([]);
+    this.getMovies();
+  }
 
-  listMovies(): Observable<Movie[]> {
+  getMovies() {
     const options = {
       headers: new HttpHeaders({
         "Content-type": "application/json"
       })
     };
-    return this.http.post<Movie[]>(environment.routes.listMovies, "", options);
+    return this.http
+      .post(environment.routes.listMovies, "", options)
+      .subscribe(movies => {
+        this.movies.next(movies);
+      });
   }
   addMovie(name, release_year, plot, poster, producer, actors) {
     return new Observable(observer => {
@@ -36,6 +44,7 @@ export class MoviesService {
       return this.http
         .post(environment.routes.saveMovies, body, options)
         .subscribe(result => {
+          this.getMovies();
           observer.next(result);
         });
     });

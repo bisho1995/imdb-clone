@@ -13,8 +13,6 @@ export class ListMoviesComponent implements OnInit {
   constructor(private movie: MoviesService) {}
 
   ngOnInit() {
-    this.movie.listMovies().subscribe((data: Movie[]) => {
-      this.movies = data;
-    });
+    this.movie.movies.subscribe(movies => (this.movies = movies));
   }
 }

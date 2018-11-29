@@ -4,7 +4,9 @@
     <span class="card-title">{{ movie.name }}</span>
   </div>
   <div class="edit-icon">
-    <a [routerLink]="['/edit-movie']"><i class="fas fa-edit"></i></a>
+    <a [routerLink]="['/edit-movie']" [queryParams]="{ id: movie.id }"
+      ><i class="fas fa-edit"></i
+    ></a>
   </div>
   <div class="card-content">
     <div class="meta-data-producer-year">

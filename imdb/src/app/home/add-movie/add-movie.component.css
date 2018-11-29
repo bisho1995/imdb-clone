@@ -16,3 +16,6 @@ form {
 #actors {
   min-height: 150px;
 }
+#plot {
+  height: 150px;
+}

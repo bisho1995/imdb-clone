@@ -5,6 +5,7 @@ import { ActorsService } from "../../shared/services/actors.service";
 import { AddActorService } from "../shared/services/add-actor.service";
 import { ProducersService } from "../../shared/services/producers.service";
 import { AddProducerService } from "../shared/services/add-producer.service";
+import { MoviesService } from "../../shared/services/movies.service";
 @Component({
   selector: "app-add-movie",
   templateUrl: "./add-movie.component.html",
@@ -16,7 +17,8 @@ export class AddMovieComponent implements OnInit {
     release_year: new FormControl(""),
     poster: new FormControl(""),
     producer: new FormControl(""),
-    actors: new FormControl("")
+    actors: new FormControl(""),
+    plot: new FormControl("")
   });
   actorSubscription: any;
   actors: any[];
@@ -28,7 +30,8 @@ export class AddMovieComponent implements OnInit {
     private actorService: ActorsService,
     private producerService: ProducersService,
     public addActorService: AddActorService,
-    public addProducerService: AddProducerService
+    public addProducerService: AddProducerService,
+    private movieService: MoviesService
   ) {}
 
   ngOnInit() {
@@ -56,7 +59,24 @@ export class AddMovieComponent implements OnInit {
       }
     );
   }
-  formSubmit() {}
+  formSubmit() {
+    console.log(this.addForm.value);
+    const {
+      name,
+      release_year,
+      poster,
+      producer,
+      actors,
+      plot
+    } = this.addForm.value;
+    const actorsStr = actors.join(",");
+    console.log({ name, release_year, poster, actorsStr, producer, plot });
+    this.movieService
+      .addMovie(name, release_year, plot, poster, producer, actorsStr)
+      .subscribe(result => {
+        this.addForm.reset();
+      });
+  }
   public findId() {
     const ids = this.addForm.value.actors;
     const list = this.actors.filter(actor => ids.includes(actor.id));

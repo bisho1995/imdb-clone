@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   routes: {
     listMovies: "http://localhost:3000/list-movies",
+    saveMovies: "http://localhost:3000/save-movie",
     listActors: "http://localhost:3000/list-actors",
     addActor: "http://localhost:3000/add-actor",
     listProducers: "http://localhost:3000/list-producers",

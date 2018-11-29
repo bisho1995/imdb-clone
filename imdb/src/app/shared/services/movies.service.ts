@@ -18,4 +18,26 @@ export class MoviesService {
     };
     return this.http.post<Movie[]>(environment.routes.listMovies, "", options);
   }
+  addMovie(name, release_year, plot, poster, producer, actors) {
+    return new Observable(observer => {
+      const body = JSON.stringify({
+        name,
+        release_year,
+        plot,
+        poster,
+        producer,
+        actors
+      });
+      const options = {
+        headers: new HttpHeaders({
+          "Content-type": "application/json"
+        })
+      };
+      return this.http
+        .post(environment.routes.saveMovies, body, options)
+        .subscribe(result => {
+          observer.next(result);
+        });
+    });
+  }
 }

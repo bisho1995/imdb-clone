@@ -1,10 +1,27 @@
 .card {
   width: 95%;
   max-width: 400px;
+  left: 50%;
+  transform: translate(-50%);
 }
 .card-title {
   background: rgba(95, 95, 95, 0.815);
   font-weight: bold;
+}
+.card-image {
+  background: rgb(83, 83, 83);
+  position: relative;
+  height: 250px;
+}
+.card-image img {
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  width: auto;
+  height: auto;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .edit-icon {

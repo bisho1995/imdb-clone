@@ -1,7 +1,7 @@
 <app-add-movie-header></app-add-movie-header>
 <div class="container">
   <h1 class="center-align header">Add Movie</h1>
-  <form (ngSubmit)="formSubmit()" [formGroup]="addForm">
+  <form [formGroup]="addForm">
     <label for="name">Name</label>
     <input
       type="text"
@@ -71,12 +71,17 @@
         <li *ngFor="let actor of selectedActors">{{ actor.name }}</li>
       </ul>
     </div>
+
+    <label for="plot">Plot</label>
+    <textarea id="plot" formControlName="plot" required></textarea>
+
     <div class="center-align">
       <input
         type="submit"
         value="Add Movie"
         class="btn blue "
         [disabled]="!addForm.valid"
+        (click)="formSubmit()"
       />
     </div>
   </form>

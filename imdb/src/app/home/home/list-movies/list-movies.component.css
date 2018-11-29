@@ -1,8 +1,22 @@
 .movie-wrapper {
   width: 98%;
-  max-width: 1080px;
+  max-width: 1200px;
   margin: 0px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
 }
 .movie-header {
   font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .movie-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 500px) {
+  .movie-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

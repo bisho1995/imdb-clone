@@ -1,33 +1,27 @@
-<div class="row">
-  <div class="col s12 m7">
-    <div class="card">
-      <div class="card-image">
-        <img [src]="movie.poster" />
-        <span class="card-title">{{ movie.name }}</span>
-      </div>
-      <div class="edit-icon">
-        <a [routerLink]="['/edit-movie']"><i class="fas fa-edit"></i></a>
-      </div>
-      <div class="card-content">
-        <div class="meta-data-producer-year">
-          <span>Produced by {{ movie.producer }}</span
-          ><span class=" blue white-text release-year">{{
-            movie.release_year
-          }}</span>
-        </div>
-        <br />
-        <div class="actors-container">
-          <span
-            class="teal white-text badge"
-            *ngFor="let actor of movie.actors"
-            >{{ actor }}</span
-          >
-        </div>
-        <div>
-          <br />
-          <p>{{ movie.plot }}</p>
-        </div>
-      </div>
+<div class="card">
+  <div class="card-image">
+    <img [src]="movie.poster" />
+    <span class="card-title">{{ movie.name }}</span>
+  </div>
+  <div class="edit-icon">
+    <a [routerLink]="['/edit-movie']"><i class="fas fa-edit"></i></a>
+  </div>
+  <div class="card-content">
+    <div class="meta-data-producer-year">
+      <span>Produced by {{ movie.producer }}</span
+      ><span class=" blue white-text release-year">{{
+        movie.release_year
+      }}</span>
+    </div>
+    <br />
+    <div class="actors-container">
+      <span class="teal white-text badge" *ngFor="let actor of movie.actors">{{
+        actor
+      }}</span>
+    </div>
+    <div>
+      <br />
+      <p>{{ movie.plot }}</p>
     </div>
   </div>
 </div>

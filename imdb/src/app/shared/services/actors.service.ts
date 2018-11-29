@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import moment from "moment";
+import * as moment from "moment";
+import { Subject } from "rxjs";
 
 import { environment } from "../../../environments/environment";
 
@@ -8,10 +9,17 @@ import { environment } from "../../../environments/environment";
   providedIn: "root"
 })
 export class ActorsService {
-  constructor(private http: HttpClient) {}
+  test;
+  actors;
+  constructor(private http: HttpClient) {
+    this.actors = new Subject();
+    this.getActors();
+  }
 
-  listActors() {
-    return this.http.post(environment.routes.listActors, "", {});
+  getActors() {
+    this.http.post(environment.routes.listActors, "", {}).subscribe(actors => {
+      this.actors.next(actors["result"]);
+    });
   }
 
   addActor(name, sex, dob, bio) {
@@ -26,6 +34,7 @@ export class ActorsService {
         "Content-type": "application/json"
       })
     };
+    this.getActors();
     return this.http.post(environment.routes.addActor, body, options);
   }
 }

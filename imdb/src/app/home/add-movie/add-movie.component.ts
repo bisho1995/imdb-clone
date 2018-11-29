@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { ActorsService } from "../../shared/services/actors.service";
 import { AddActorService } from "../shared/services/add-actor.service";
 import { ProducersService } from "../../shared/services/producers.service";
+import { AddProducerService } from "../shared/services/add-producer.service";
 @Component({
   selector: "app-add-movie",
   templateUrl: "./add-movie.component.html",
@@ -26,34 +27,34 @@ export class AddMovieComponent implements OnInit {
   constructor(
     private actorService: ActorsService,
     private producerService: ProducersService,
-    public addActorService: AddActorService
+    public addActorService: AddActorService,
+    public addProducerService: AddProducerService
   ) {}
 
   ngOnInit() {
-    this.startSubscriptionForActors();
-    this.startSubscriptionForProducers();
+    this.getProducers();
+    this.getActors();
     this.observeFormValueChanges();
   }
+
+  getActors() {
+    this.actorService.actors.subscribe(actors => {
+      this.actors = actors;
+    });
+  }
+
   observeFormValueChanges() {
     this.addForm.valueChanges.subscribe(() => {
       this.findId();
     });
   }
-  startSubscriptionForActors() {
-    this.actorSubscription = this.actorService
-      .listActors()
-      .subscribe(actors => (this.actors = actors["result"]));
-  }
-  stopSubscriptionForActors() {
-    this.actorSubscription.unsubscribe();
-  }
-  stopSubscriptionForProducers() {
-    this.producerSubscription.unsubscribe();
-  }
-  startSubscriptionForProducers() {
-    this.producerSubscription = this.producerService
-      .listProducers()
-      .subscribe(producer => (this.producers = producer["results"]));
+
+  getProducers() {
+    this.producerSubscription = this.producerService.producers.subscribe(
+      producers => {
+        this.producers = producers;
+      }
+    );
   }
   formSubmit() {}
   public findId() {

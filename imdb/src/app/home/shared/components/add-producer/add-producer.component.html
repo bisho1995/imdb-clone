@@ -1,3 +1,43 @@
-<p>
-  add-producer works!
-</p>
+<div class="add-producer-wrapper">
+  <div class="wrapper">
+    <div class="cancel" (click)="removeScreen()">X</div>
+    <header><h1 class="center-align">Add Producer</h1></header>
+    <form (submit)="saveProducer()" [formGroup]="addProducer">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Eg: Karan Johar"
+        autofocus
+        required
+        formControlName="name"
+      />
+      <label for="sex">Sex</label>
+      <input
+        type="text"
+        id="sex"
+        placeholder="Eg M"
+        required
+        formControlName="sex"
+      />
+      <label for="dob">Date of birth</label>
+      <input type="date" id="dob" required formControlName="dob" />
+      <label for="bio">Biography</label>
+      <textarea
+        id="bio"
+        class="materialize-textarea"
+        required
+        formControlName="bio"
+      ></textarea>
+      <div class="center-align">
+        <input
+          type="submit"
+          value="Add"
+          class="btn blue wave"
+          [disabled]="!addProducer.valid"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+>

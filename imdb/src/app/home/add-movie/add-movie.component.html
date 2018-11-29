@@ -31,7 +31,9 @@
     />
     <div class="space-between">
       <label for="producer">Producer</label>
-      <button class="btn">Add producer</button>
+      <button class="btn" (click)="addProducerService.showAddProducer()">
+        Add producer
+      </button>
     </div>
     <select
       name="cars"
@@ -82,4 +84,7 @@
 <app-footer></app-footer>
 <div *ngIf="addActorService.addActorShowHide">
   <app-add-actor></app-add-actor>
+</div>
+<div *ngIf="addProducerService.addProducerShowHide">
+  <app-add-producer></app-add-producer>>
 </div>

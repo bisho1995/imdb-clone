@@ -1,9 +1,9 @@
-import mysql from 'mysql';
-import connection from '../db';
+import mysql from "mysql";
+import connection from "../db";
 
 function addActor(name, sex, dob, bio) {
   return new Promise((resolve, reject) => {
-    const sql = 'INSERT INTO actors (name, sex, dob, bio) VALUES (?,?,?,?)';
+    const sql = "INSERT INTO actors (name, sex, dob, bio) VALUES (?,?,?,?)";
     const query = mysql.format(sql, [name, sex, dob, bio]);
     connection.query(query, (err, result) => {
       if (err) reject(err);
@@ -14,7 +14,7 @@ function addActor(name, sex, dob, bio) {
 
 function listActors() {
   return new Promise((resolve, reject) => {
-    const query = 'SELECT id, name from actors';
+    const query = "SELECT id, name from actors";
     connection.query(query, (err, result) => {
       if (err) reject(err);
       else resolve(result);

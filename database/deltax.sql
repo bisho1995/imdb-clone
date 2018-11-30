@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2018 at 05:35 AM
+-- Generation Time: Nov 30, 2018 at 03:57 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -50,7 +50,10 @@ INSERT INTO `actors` (`id`, `name`, `sex`, `dob`, `bio`) VALUES
 (9, 'Sunil Shetty', 'M', '11/08/1961', 'Sunil Veerappa Shetty is an Indian film actor, producer and entrepreneur who is predominantly active in Bollywood films. In a career spanning more than 25 years, he has acted in more than 110 films. His major works have been action and comedy films. He has also acted in Malayalam, Tamil, and English language films.'),
 (10, 'Preity Zinta', 'F', '31/01/1975', 'Preity Zinta is an Indian film actress and entrepreneur. She has appeared in Hindi films of Bollywood, as well as Telugu, Punjabi, and English language films.'),
 (11, 'Katrina Kaif', 'F', '16/07/1983', 'Katrina Kaif is an English actress who works in Hindi films. Despite receiving mixed reviews from critics for her acting prowess, she has established herself in Bollywood and is one of India\'s highest-paid actresses. Born in Hong Kong, Kaif and her family lived in several countries before she moved to London.'),
-(12, 'Ranbir Kapoor', 'M', '28/09/1982', 'Ranbir Kapoor is an Indian actor and film producer. He is one of the highest-paid actors of Hindi cinema and has featured in Forbes India\'s Celebrity 100 list since 2012. Kapoor is the recipient of several awards, including five Filmfare Awards.');
+(12, 'Ranbir Kapoor', 'M', '28/09/1982', 'Ranbir Kapoor is an Indian actor and film producer. He is one of the highest-paid actors of Hindi cinema and has featured in Forbes India\'s Celebrity 100 list since 2012. Kapoor is the recipient of several awards, including five Filmfare Awards.'),
+(13, 'Salman Khan', 'M', '27/12/1965', 'Abdul Rashid Salim Salman Khan, credited as Salman Khan is an Indian film actor, producer, singer and television personality. In a film career spanning almost thirty years, Khan has received numerous awards, including two National Film Awards as a film producer, and two Filmfare Awards for acting.'),
+(16, 'Kareena Kapoor', 'F', '21/09/1980', 'Kareena Kapoor, also known by her married name Kareena Kapoor Khan, is an Indian actress who appears in Hindi films. She is the daughter of actors Randhir Kapoor and Babita, and the younger sister of actress Karisma Kapoor.'),
+(17, 'Govinda', 'M', '21/12/1963', 'Govinda Ahuja, known mononymously as Govinda, is an Indian film actor, dancer, comedian and former politician known for his work in Hindi films. Known for his dancing skills, Govinda has received twelve Filmfare Award nominations, a Filmfare Special Award, a Filmfare Award for Best Comedian, and four Zee Cine Awards.');
 
 -- --------------------------------------------------------
 
@@ -73,7 +76,8 @@ CREATE TABLE `movies` (
 
 INSERT INTO `movies` (`id`, `name`, `release_year`, `plot`, `producer`, `poster`) VALUES
 (19, 'Rab Ne Bana Di Jodi', '2008', 'Surinder, a simple man, falls for a vivacious Tani and gets married to her. In order to impress her, he undergoes a complete makeover and becomes Raj.', 1, 'https://i.ytimg.com/vi/rAAa7NnTFIQ/maxresdefault.jpg'),
-(20, 'Ajab Prem Ki Ghazab Kahani', '2009', 'Prem falls for Jenny, a woman who is already in love with a man named Rahul. Despite this, he agrees to help her marry him and gets into various comical situations as a result.', 5, 'http://www.gstatic.com/tv/thumb/v22vodart/7906592/p7906592_v_v7_aa.jpg');
+(20, 'Ajab Prem Ki Ghazab Kahani', '2009', 'Prem falls for Jenny, a woman who is already in love with a man named Rahul. Despite this, he agrees to help her marry him and gets into various comical situations as a result.', 5, 'http://www.gstatic.com/tv/thumb/v22vodart/7906592/p7906592_v_v7_aa.jpg'),
+(21, 'Partner', '2007', 'Prem, a love guru who shares tips on dating woman, helps his client Bhaskar woo his boss. However, he later falls for a single mother and tries to hide his profession.', 6, 'http://www.gstatic.com/tv/thumb/v22vodart/172061/p172061_v_v8_ab.jpg');
 
 -- --------------------------------------------------------
 
@@ -97,7 +101,10 @@ INSERT INTO `movie_actors` (`movie_id`, `actor_id`) VALUES
 (19, 4),
 (19, 5),
 (20, 11),
-(20, 12);
+(20, 12),
+(21, 11),
+(21, 13),
+(21, 17);
 
 -- --------------------------------------------------------
 
@@ -122,7 +129,8 @@ INSERT INTO `producers` (`id`, `name`, `sex`, `dob`, `bio`) VALUES
 (2, 'Karan Johar', 'M', '25/05/1972', 'Karan Johar, often informally referred to as KJo, is an Indian film director, producer, screenwriter, costume designer, actor and television personality who works in Hindi films. He is the son of Hiroo Johar and the producer Yash Johar.'),
 (3, 'Yash Chopra', 'M', '27/09/1932', 'Yash Raj Chopra was an Indian film director and film producer, predominantly working in Hindi cinema. Yash Chopra began his career as an assistant director to I. S. Johar and elder brother, B.R. Chopra.'),
 (4, 'Kamal Haasan', 'M', '07/11/1954', 'Kamal Haasan is an Indian film actor, dancer, film director, screenwriter, producer, playback singer, lyricist and politician who works primarily in Tamil cinema. Kamal has won awards including four National Film Awards, the second-most by any Indian actor, and nineteen Filmfare Awards.'),
-(5, 'Ronnie Screwvala', 'M', '08/09/1962', 'Rohinton Soli \"Ronnie\" Screwvala is a first generation Indian entrepreneur and philanthropist. He has been named on Esquire\'s List of the 75 Most Influential People of the 21st Century and ranked 78 among the 100 most influential people in the world on the Time 100.');
+(5, 'Ronnie Screwvala', 'M', '08/09/1962', 'Rohinton Soli \"Ronnie\" Screwvala is a first generation Indian entrepreneur and philanthropist. He has been named on Esquire\'s List of the 75 Most Influential People of the 21st Century and ranked 78 among the 100 most influential people in the world on the Time 100.'),
+(6, 'Sohail Khan', 'M', '20/12/1969', 'Sohail Salim Abdul Rashid Khan is an Indian film actor, director and producer who works predominantly in Hindi cinema. He is the younger brother of actors Salman Khan and Arbaaz Khan. He produces films under his banner Sohail Khan Productions.');
 
 --
 -- Indexes for dumped tables
@@ -162,19 +170,19 @@ ALTER TABLE `producers`
 -- AUTO_INCREMENT for table `actors`
 --
 ALTER TABLE `actors`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `producers`
 --
 ALTER TABLE `producers`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

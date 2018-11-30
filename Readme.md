@@ -18,7 +18,7 @@ Demo: https://www.youtube.com/watch?v=fO-aNxLdL9o&feature=youtu.be
 1. Nodejs (>=8)
 2. MySQL
 
-### small note
+## small note
 
 setup the database server first then the backend and last the frontend. If this order is not maintained then you may get unexpected results.
 

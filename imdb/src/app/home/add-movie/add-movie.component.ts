@@ -9,7 +9,7 @@ import { MoviesService } from "../../shared/services/movies.service";
 @Component({
   selector: "app-add-movie",
   templateUrl: "./add-movie.component.html",
-  styleUrls: ["./add-movie.component.css"]
+  styleUrls: ["./add-movie.component.scss"]
 })
 export class AddMovieComponent implements OnInit {
   addForm = new FormGroup({
@@ -38,6 +38,9 @@ export class AddMovieComponent implements OnInit {
     this.getProducers();
     this.getActors();
     this.observeFormValueChanges();
+    // this.addForm.valueChanges.subscribe(data => {
+    //   console.log(data);
+    // });
   }
 
   getActors() {

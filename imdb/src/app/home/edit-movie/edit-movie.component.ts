@@ -11,7 +11,7 @@ import { MoviesService } from "../../shared/services/movies.service";
 @Component({
   selector: "app-edit-movie",
   templateUrl: "./edit-movie.component.html",
-  styleUrls: ["./edit-movie.component.css"]
+  styleUrls: ["./edit-movie.component.scss"]
 })
 export class EditMovieComponent implements OnInit {
   movieId: Number;
@@ -47,21 +47,21 @@ export class EditMovieComponent implements OnInit {
     this.getProducers();
     this.getActors();
     this.observeFormValueChanges();
+    this.findId();
   }
   populateDefaultValueMovie() {
     this.movieService.movies.subscribe(movies => {
       this.movieInfo = movies.filter(movie => {
         return movie.id == this.movieId;
       })[0];
-      console.log(this.movieInfo);
       if (this.movieInfo) {
         this.editMovie.patchValue({
           name: this.movieInfo.name,
           release_year: this.movieInfo.release_year,
           poster: this.movieInfo.poster,
-          producer: this.movieInfo.producer,
+          producer: this.movieInfo.producerId,
           plot: this.movieInfo.plot,
-          actors: this.movieInfo.actors
+          actors: this.movieInfo.actors.map(actor => actor.id)
         });
       }
     });
@@ -73,10 +73,6 @@ export class EditMovieComponent implements OnInit {
     this.actorService.actors.subscribe(actors => {
       this.actors = actors;
     });
-  }
-
-  observeFormValueChanges() {
-    this.editMovie.valueChanges.subscribe(() => {});
   }
 
   formSubmit() {
@@ -100,7 +96,7 @@ export class EditMovieComponent implements OnInit {
         this.movieId
       )
       .subscribe(result => {
-        console.log(result);
+        alert("Movie updated");
       });
   }
 
@@ -110,5 +106,17 @@ export class EditMovieComponent implements OnInit {
         this.producers = producers;
       }
     );
+  }
+
+  observeFormValueChanges() {
+    this.editMovie.valueChanges.subscribe(() => {
+      this.findId();
+    });
+  }
+
+  public findId() {
+    const ids = this.editMovie.value.actors;
+    const list = this.actors.filter(actor => ids.includes(actor.id));
+    this.selectedActors = list;
   }
 }

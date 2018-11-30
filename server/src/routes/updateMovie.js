@@ -32,8 +32,8 @@ export default function (req, res) {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
     const {
-      name, release_year, plot, poster, producer, id,
-    } = req.body;
+ name, release_year, plot, poster, producer, id 
+} = req.body;
     const actors = req.body.actors.trim().split(',');
     listActors(id)
       .then(async (result) => {
@@ -75,6 +75,7 @@ export default function (req, res) {
         res.status(500).json({ status: 'error', message: err });
       });
   } else {
+    console.log(errors.array());
     res
       .status(400)
       .json({ status: 'error', message: 'Violated field validations' });

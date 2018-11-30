@@ -7,7 +7,7 @@ import { AddActorService } from "../../services/add-actor.service";
 @Component({
   selector: "app-add-actor",
   templateUrl: "./add-actor.component.html",
-  styleUrls: ["./add-actor.component.css"]
+  styleUrls: ["./add-actor.component.scss"]
 })
 export class AddActorComponent implements OnInit {
   addActor = new FormGroup({

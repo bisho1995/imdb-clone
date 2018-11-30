@@ -21,18 +21,20 @@ function addMovie(name, release_year, plot, poster, producer_id) {
 
 function getActors(id) {
   return new Promise((resolve, reject) => {
-    const SQL =      'SELECT actors.name from movies INNER JOIN movie_actors on movies.id = movie_actors.movie_id INNER JOIN actors on movie_actors.actor_id = actors.id where movies.id = ?';
+    const SQL =      'SELECT actors.name as name, actors.id as id from movies INNER JOIN movie_actors on movies.id = movie_actors.movie_id INNER JOIN actors on movie_actors.actor_id = actors.id where movies.id = ?';
     const query = mysql.format(SQL, [id]);
     connection.query(query, (err, results) => {
       if (err) reject(err);
-      else resolve(results.map(result => result.name));
+      else {
+        resolve(results.map(result => ({ name: result.name, id: result.id })));
+      }
     });
   });
 }
 
 function getMovieDetails(id) {
   return new Promise((resolve, reject) => {
-    const SQL =      "SELECT movies.name as 'name',movies.release_year AS 'release_year', movies.poster AS 'poster', movies.plot AS 'plot', producers.name AS 'producer' from movies INNER JOIN producers on movies.producer = producers.id WHERE movies.id=?";
+    const SQL =      "SELECT movies.name as 'name',movies.release_year AS 'release_year', movies.poster AS 'poster', movies.plot AS 'plot', producers.name AS 'producer', producers.id AS producerId from movies INNER JOIN producers on movies.producer = producers.id WHERE movies.id=?";
     const query = mysql.format(SQL, [id]);
 
     connection.query(query, async (err, result) => {
